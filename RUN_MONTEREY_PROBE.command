@@ -16,6 +16,10 @@ readonly BASE_SHA256="a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36
 readonly MIN_FREE_KB=4194304
 
 SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)"
+cd "$SCRIPT_DIR" || {
+    printf 'BLOCKED_SETUP: cannot enter the downloaded probe directory.\n' >&2
+    exit 20
+}
 CACHE_ROOT="${HOME}/Library/Caches/DexDictateMontereyProbe"
 MODEL_DIR="${CACHE_ROOT}/models"
 AUDIO_DIR="${CACHE_ROOT}/audio"
