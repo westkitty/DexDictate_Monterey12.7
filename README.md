@@ -8,6 +8,12 @@ Run from the repository root (including an unzipped GitHub download):
 bash RUN_MONTEREY_PROBE.command
 ```
 
+Or paste this into Terminal to fetch the repository and start the probe in one step:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/westkitty/DexDictate_Monterey12.7/main/RUN_FROM_GITHUB.command | bash
+```
+
 It needs no sudo, Homebrew, Python, Node, CMake, Docker, or package manager. It uses Apple's developer toolchain, Swift Package Manager, AVFoundation, `say`, and `afconvert`. macOS may ask for microphone access; say the prompted phrase while it records.
 
 The probe downloads only the official whisper.cpp GGML English models: Tiny (about 75 MiB) and Base (about 142 MiB). Files are SHA-256 verified before use and cached at `~/Library/Caches/DexDictateMontereyProbe/`; no Core ML encoder sidecar is downloaded or accepted. Every run creates `probe.log`, `probe-report.txt`, and `probe-report.json` under that cache's `reports/` directory.
